@@ -4,11 +4,3 @@
 {% block content %}
     <p class="lead">Django + SocketIO</p>
 {% endblock content %}
-{% block extra_js %}
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script>
-  $(function() {
-    var socket = io('http://localhost:3000');
-  });
-</script>
-{% endblock extra_js %}
