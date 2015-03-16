@@ -1,6 +1,6 @@
-#Socketdjango
+#Django SocketIO
 ## About
-Socketdjango is just an exercise to implement user interactions with sockets
+Django SocketIO is just an exercise to implement user interactions with sockets
 via nodejs and django
 ## Requirements
 * NodeJS
