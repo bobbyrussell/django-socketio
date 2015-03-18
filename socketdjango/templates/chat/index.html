@@ -8,7 +8,39 @@
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script>
   $(function() {
+    // wire in to the socket
     var socket = io('http://localhost:3000');
+
+    // handle some events
+    socket.on('connect', function() {
+      console.log('Connected.');
+    });
+
+    socket.on('disconnect', function() {
+      console.log('Disconnected.');
+    });
+
+    socket.on('error', function(error) {
+      console.log('Something went wrong!');
+      console.log(error);
+    });
+
+    socket.on('reconnect', function(n) {
+      console.log('Reconnected after ' + n + ' tries.');
+    });
+
+    socket.on('reconnect_attempt', function() {
+      console.log('Trying to reconnect...');
+    });
+
+    socket.on('reconnecting', function(n) {
+      console.log('Reconnection attempt number ' + n + '...');
+    });
+
+    socket.on('reconnect_error', function(err) {
+      console.log('Could not connect!');
+      console.log(err);
+    });
   });
 </script>
 {% endblock extra_js %}
