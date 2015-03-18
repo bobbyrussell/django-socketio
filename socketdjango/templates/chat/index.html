@@ -20,13 +20,13 @@
       console.log('Disconnected.');
     });
 
-    socket.on('error', function(error) {
+    socket.on('error', function(err) {
       console.log('Something went wrong!');
-      console.log(error);
+      console.log('Message: ' + err.message);
     });
 
     socket.on('reconnect', function(n) {
-      console.log('Reconnected after ' + n + ' tries.');
+      console.log('Successfully reconnected after ' + n + ' tries.');
     });
 
     socket.on('reconnect_attempt', function() {
@@ -39,7 +39,7 @@
 
     socket.on('reconnect_error', function(err) {
       console.log('Could not connect!');
-      console.log(err);
+      console.log('Message: ' + err.message);
     });
   });
 </script>
