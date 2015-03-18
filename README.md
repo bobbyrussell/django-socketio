@@ -12,7 +12,7 @@ via nodejs and django
 
         virtualenv env
         . env/bin/activate
-        git clone <repo URL> <project name>
+        git clone https://github.com/bobbyrussell/django-socketio <project name>
         cd <project name>
         pip install -r requirements/base.txt
         bower install
