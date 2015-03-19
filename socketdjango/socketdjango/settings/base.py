@@ -128,9 +128,13 @@ STATICFILES_FINDERS = (
 PIPELINE_CSS = {
     'libraries': {
         'source_filenames':
-            ('bower_components/bootstrap/dist/css/bootstrap.css',
-             'css/socketdjango.css',),
+            ('bower_components/bootstrap/dist/css/bootstrap.css',),
         'output_filename': 'css/libs.min.css',
+    },
+    'custom': {
+        'source_filenames':
+            ('css/socketdjango.css',),
+        'output_filename': 'css/custom.min.css',
     }
 }
 
