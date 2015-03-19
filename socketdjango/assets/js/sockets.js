@@ -13,19 +13,18 @@ $(function() {
     var chatServer = '<dt class="chat-server">Chat Server:</dt>';
     $messageList.append(chatServer);
     if (err) {
-      $messageList.append('<dd>' + message +
+      $messageList.append('<dd>' + message.message +
         ' See console for more details</dd>');
-      console.log('Error Message: ' + message);
+      console.log('Error Message: ' + message.err);
     } else {
-      $messageList.append('<dd>' + message + '</dd>');
-      console.log(message);
+      $messageList.append('<dd>' + message.message + '</dd>');
     }
   };
 
   function messageFromUser(message) {
     var user = '<dt>A User:</dt>';
     $messageList.append(user);
-    $messageList.append('<dd>' + message.message + '</dd>');
+    $messageList.append('<dd>' + message + '</dd>');
   }
 
   function sendMessage(message) {
@@ -37,10 +36,15 @@ $(function() {
 
   // handle some events
   socket.on('connect', function() {
-    var message = 'Now Connected!';
-    messageFromServer(message);
+    var message = '<dt>Now Connected!</dt><dd></dt>';
+    $messageList.append(message);
+
     socket.on('chat', function(data) {
       messageFromUser(data);
+    });
+
+    socket.on('server', function(data) {
+      messageFromServer(data);
     });
   });
 
@@ -50,27 +54,33 @@ $(function() {
   });
 
   socket.on('error', function(err) {
-    var message = "Something went wrong!";
+    var message = {
+      message: "Something went wrong!",
+      err: err
+    };
     messageFromServer(message, true);
   });
 
   socket.on('reconnect', function(n) {
-    var message = 'Successfully reconnected after ' + n + ' tries.';
+    var message = {message: 'Successfully reconnected after ' + n + ' tries.'};
     messageFromServer(message);
   });
 
   socket.on('reconnect_attempt', function() {
-    var message = 'Trying to reconnect...';
+    var message = {message: 'Trying to reconnect...'};
     messageFromServer(message);
   });
 
   socket.on('reconnecting', function(n) {
-    var message = 'Reconnection attempt number ' + n + '...';
+    var message = {message: 'Reconnection attempt number ' + n + '...'};
     messageFromServer(message);
   });
 
   socket.on('reconnect_error', function(err) {
-    var message = 'Could not connect!';
+    var message = {
+      message: 'Could not connect!',
+      err: err
+    };
     messageFromServer(message, true);
   });
 

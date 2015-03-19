@@ -5,16 +5,16 @@
 <p class="lead">Chat with your friends over Django and NodeJS!</p>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Messages</h3>
+    <h3 class="panel-title">Chat Room</h3>
   </div>
   <div id="messages-panel" class="panel-body fixed-panel">
     <dl class="dl-horizontal" id="messages">
     </dl>
   </div>
   <div class="panel-footer">
-    <form action="">
+    <form id="message-form" action="">
       <div class="form-group">
-        <input type="text" class="form-control" id="m" autocomplete="off" />
+        <input type="text" class="form-control" id="message-input" autocomplete="off" />
       </div>
     </form>
   </div>
@@ -22,62 +22,6 @@
 {% endblock content %}
 {% block extra_js %}
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script>
-  $(function() {
-    // wire in to the socket
-    var socket = io('http://localhost:3000');
-
-    // chat related stuff
-    var $messageList = $('#messages');
-
-    function sendMessage (message, err) {
-      var chatServer = '<dt class="chat-server">Chat Server:</dt>';
-      $messageList.append(chatServer);
-      if (err) {
-        $messageList.append('<dd>' + message +
-          ' See console for more details</dd>');
-        console.log('Error Message: ' + message);
-      } else {
-        $messageList.append('<dd>' + message + '</dd>');
-        console.log(message);
-      }
-    };
-
-    // handle some events
-    socket.on('connect', function() {
-      var message = 'Now Connected!';
-      sendMessage(message);
-    });
-
-    socket.on('disconnect', function() {
-      var message = "Disconnected";
-      sendMessage(message);
-    });
-
-    socket.on('error', function(err) {
-      var message = "Something went wrong!";
-      sendMessage(message, true);
-    });
-
-    socket.on('reconnect', function(n) {
-      var message = 'Successfully reconnected after ' + n + ' tries.';
-      sendMessage(message);
-    });
-
-    socket.on('reconnect_attempt', function() {
-      var message = 'Trying to reconnect...';
-      sendMessage(message);
-    });
-
-    socket.on('reconnecting', function(n) {
-      var message = 'Reconnection attempt number ' + n + '...';
-      sendMessage(message);
-    });
-
-    socket.on('reconnect_error', function(err) {
-      var message = 'Could not connect!';
-      sendMessage(message, true);
-    });
-  });
-</script>
+{% load staticfiles pipeline %}
+{% javascript 'sockets' %}
 {% endblock extra_js %}
