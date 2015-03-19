@@ -4,7 +4,7 @@
   "authors": [
     "Bobby Russell <bobbyrussell@gmail.com>"
   ],
-  "description": "Socketdjango",
+  "description": "Django SocketIO",
   "private": true,
   "ignore": [
     "**/.*",

@@ -1,7 +1,7 @@
 """
-Socketdjango Project Module
+Django SocketIO Project Module
 
-Interesting Docstring goes here!
+Django + SocketIO is fun!
 """
 
 __version__ = '0.1.0'
