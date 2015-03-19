@@ -27,35 +27,56 @@
     // wire in to the socket
     var socket = io('http://localhost:3000');
 
+    // chat related stuff
+    var $messageList = $('#messages');
+
+    function sendMessage (message, err) {
+      var chatServer = '<dt class="chat-server">Chat Server:</dt>';
+      $messageList.append(chatServer);
+      if (err) {
+        $messageList.append('<dd>' + message +
+          ' See console for more details</dd>');
+        console.log('Error Message: ' + message);
+      } else {
+        $messageList.append('<dd>' + message + '</dd>');
+        console.log(message);
+      }
+    };
+
     // handle some events
     socket.on('connect', function() {
-      console.log('Connected.');
+      var message = 'Now Connected!';
+      sendMessage(message);
     });
 
     socket.on('disconnect', function() {
-      console.log('Disconnected.');
+      var message = "Disconnected";
+      sendMessage(message);
     });
 
     socket.on('error', function(err) {
-      console.log('Something went wrong!');
-      console.log('Message: ' + err.message);
+      var message = "Something went wrong!";
+      sendMessage(message, true);
     });
 
     socket.on('reconnect', function(n) {
-      console.log('Successfully reconnected after ' + n + ' tries.');
+      var message = 'Successfully reconnected after ' + n + ' tries.';
+      sendMessage(message);
     });
 
     socket.on('reconnect_attempt', function() {
-      console.log('Trying to reconnect...');
+      var message = 'Trying to reconnect...';
+      sendMessage(message);
     });
 
     socket.on('reconnecting', function(n) {
-      console.log('Reconnection attempt number ' + n + '...');
+      var message = 'Reconnection attempt number ' + n + '...';
+      sendMessage(message);
     });
 
     socket.on('reconnect_error', function(err) {
-      console.log('Could not connect!');
-      console.log('Message: ' + err.message);
+      var message = 'Could not connect!';
+      sendMessage(message, true);
     });
   });
 </script>

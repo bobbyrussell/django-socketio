@@ -1,0 +1,10 @@
+.fixed-panel {
+  min-height: 150px;
+  max-height: 150px;
+  overflow-y: scroll;
+  background: azure;
+}
+
+.chat-server {
+  color: red;
+}
