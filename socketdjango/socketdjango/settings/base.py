@@ -143,5 +143,10 @@ PIPELINE_JS = {
         'source_filenames':
             ('bower_components/jquery/dist/jquery.js',),
         'output_filename': 'js/libs.min.js',
+    },
+    'sockets': {
+        'source_filenames':
+            ('js/sockets.js',),
+        'output_filename': 'css/sockets.min.js',
     }
 }
