@@ -2,7 +2,23 @@
 {% block title %}Django Socket.IO {% endblock title %}
 {% block page_title %}Chat{% endblock page_title %}
 {% block content %}
-    <p class="lead">Chat stuff goes here</p>
+<p class="lead">Chat with your friends over Django and NodeJS!</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Messages</h3>
+  </div>
+  <div id="messages-panel" class="panel-body fixed-panel">
+    <dl class="dl-horizontal" id="messages">
+    </dl>
+  </div>
+  <div class="panel-footer">
+    <form action="">
+      <div class="form-group">
+        <input type="text" class="form-control" id="m" autocomplete="off" />
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock content %}
 {% block extra_js %}
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
