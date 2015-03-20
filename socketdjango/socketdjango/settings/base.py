@@ -1,5 +1,5 @@
 """
-Django settings for Socketdjango Project.
+Base Settings for Django SocketIO Project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -25,7 +25,6 @@ SECRET_KEY = r"pgn2jua6wue97n1oxb)j&c84c40-nz02u*=9d$k8@8zw2=o^p)"
 
 DEBUG = True
 
-
 TEMPLATE_DIRS = (os.path.join(DJANGO_ROOT, "templates"),)
 
 TEMPLATE_DEBUG = True
@@ -46,10 +45,11 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
+
+ALLOWED_HOSTS = []
 
 DJANGO_APPS = (
     'django.contrib.admin',
@@ -113,6 +113,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(DJANGO_ROOT, 'static')
+
 STATICFILES_DIRS = (
     os.path.join(DJANGO_ROOT, 'assets'),
 )
