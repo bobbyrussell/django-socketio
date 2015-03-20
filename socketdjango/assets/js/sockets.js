@@ -49,7 +49,7 @@ $(function() {
   });
 
   socket.on('disconnect', function() {
-    var message = "Disconnected";
+    var message = {message: "Disconnected"};
     messageFromServer(message);
   });
 
