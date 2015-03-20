@@ -3,9 +3,10 @@
 Django SocketIO is just an exercise to implement user interactions with sockets
 via nodejs and django
 ## Requirements
-* NodeJS
-* Bower
-* Django 1.7
+* [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)
+* [NodeJS](https://nodejs.org/download/)
+* [Bower](http://bower.io/#install-bower)
+* [Django 1.7](https://www.djangoproject.com/download/)
 
 ## Installation
 * Invoke:
