@@ -10,6 +10,9 @@ io.on('connection', function(socket) {
   console.log('a user connected');
   socket.emit('server', {message: 'Welcome to the chat!'});
   socket.on('chat', function(message) {
-    socket.broadcast.emit('chat', message.message);
+    socket.broadcast.emit('chat', message);
+  });
+  socket.on('entered', function(user) {
+    socket.broadcast.emit('server', {message: user + ' has entered the chat!'});
   });
 });

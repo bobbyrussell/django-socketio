@@ -12,3 +12,7 @@
 .me {
   color: blue;
 }
+
+.ui-dialog-titlebar-close{
+  display: none;
+}
