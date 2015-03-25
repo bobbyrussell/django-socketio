@@ -1,5 +1,13 @@
 # CHANGELOG
 Django SocketIO
+##0.1.1 (03.24.2015)
+###Minor Release
+* Fixed a bug in sockets.js where message in 'disconnect' was set incorrectly
+* Better organization of configuration files
+* Message div now autoscrolls on new messages
+* Remove 'debug_toolbar' from production local apps
+* Fix path in DATABASES for local and production
+
 ##0.1.0 (03.19.2015)
 ###Initial Release
 This project is meant to be a simple implementation of a chat client and server
