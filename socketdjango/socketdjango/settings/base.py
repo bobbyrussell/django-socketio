@@ -142,7 +142,8 @@ PIPELINE_CSS = {
 PIPELINE_JS = {
     'libraries': {
         'source_filenames':
-            ('bower_components/jquery/dist/jquery.js',),
+            ('bower_components/jquery/dist/jquery.js',
+             'bower_components/jquery-ui/jquery-ui.js',),
         'output_filename': 'js/libs.min.js',
     },
     'sockets': {
