@@ -5,7 +5,8 @@ $(function() {
   // chat related stuff
   var $messageList = $('#messages'),
     $messageForm = $('#message-form'),
-    $messageInput = $('#message-input');
+    $messageInput = $('#message-input'),
+    $chatPanel = $('#chat-panel');
 
   var ENTER_KEY = 13;
 
@@ -19,18 +20,21 @@ $(function() {
     } else {
       $messageList.append('<dd>' + message.message + '</dd>');
     }
+    $chatPanel.animate({scrollTop: $chatPanel[0].scrollHeight}, 1000);
   };
 
   function messageFromUser(message) {
     var user = '<dt>A User:</dt>';
     $messageList.append(user);
     $messageList.append('<dd>' + message + '</dd>');
+    $chatPanel.animate({scrollTop: $chatPanel[0].scrollHeight}, 1000);
   }
 
   function sendMessage(message) {
-    var user = '<dt class="me">Me</dt>';
+    var user = '<dt class="me">Me:</dt>';
     $messageList.append(user);
     $messageList.append('<dd>' + message + '</dd>');
+    $chatPanel.animate({scrollTop: $chatPanel[0].scrollHeight}, 1000);
     socket.emit('chat', {message: message});
   }
 
@@ -49,7 +53,7 @@ $(function() {
   });
 
   socket.on('disconnect', function() {
-    var message = "Disconnected";
+    var message = {message: "Disconnected"};
     messageFromServer(message);
   });
 
