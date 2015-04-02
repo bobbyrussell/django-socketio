@@ -4,4 +4,4 @@ Django SocketIO Project Module
 Django + SocketIO is fun!
 """
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
