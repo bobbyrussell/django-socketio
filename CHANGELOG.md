@@ -1,5 +1,12 @@
 # CHANGELOG
 Django SocketIO
+##0.1.2 (04.01.2015)
+###Minor Release
+* Upgrade Django to v1.8
+* Added user functionality to chat
+    - All clients now have a 'nickname'
+    - Server keeps track of total client connections
+
 ##0.1.1 (03.24.2015)
 ###Minor Release
 * Fixed a bug in sockets.js where message in 'disconnect' was set incorrectly
