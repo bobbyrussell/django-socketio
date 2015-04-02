@@ -6,7 +6,7 @@ via nodejs and django
 * [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html)
 * [NodeJS](https://nodejs.org/download/)
 * [Bower](http://bower.io/#install-bower)
-* [Django 1.7](https://www.djangoproject.com/download/)
+* [Django 1.8](https://www.djangoproject.com/download/)
 
 ## Installation
 * Invoke:
